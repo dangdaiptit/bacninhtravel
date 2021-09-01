@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BacNinhTravel</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="logo/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="logo/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="logo/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="logo/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="logo/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="logo/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="logo/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="logo/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="logo/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logo/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="logo/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="logo/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="logo/favicon-16x16.png">
+  <link rel="manifest" href="logo/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/ionicons.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <style>
+    .modal-dialog {
+      max-width: 800px;
+      margin: 30px auto;
+    }
+
+    /*ẩn thanh cuộn*/
+    body {
+      overflow-x: hidden;
+      /* ẩn thanh cuộn ngang */
+    }
+
+    .icon.icon-paper-plane:hover {
+      color: red;
+    }
+
+    .modal-body {
+      position: relative;
+      padding: 0px;
+    }
+
+    .close {
+      position: absolute;
+      right: -30px;
+      top: 0;
+      z-index: 999;
+      font-size: 2rem;
+      font-weight: normal;
+      color: #fff;
+      opacity: 1;
+
+
+    }
+
+    #toTop {
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      cursor: pointer;
+    }
+
+    .onTop {
+      width: 50px;
+    }
+
+    /*khắc phục sự cố chạm slide không vuốt xuống được trên trình mobile*/
+    .owl-carousel .owl-stage,
+    .owl-carousel.owl-drag .owl-item {
+      -ms-touch-action: auto;
+      touch-action: auto;
+    }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function () {//khi code nên để trong hàm này để không bị lỗi
+
+      //viết jQuery cho toTop
+      $('#wrapper').append('<div id="toTop"> <img class="onTop"  src="img/up.png"></div>');
+      $(window).scroll(function () {
+        if ($(window).scrollTop() != 0) {
+          $('#toTop').fadeIn();
+        } else {
+          $('#toTop').fadeOut();
+        }
+      });
+      $('#toTop').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 500);
+      });
+
+      // Gets the video src from the data-src on each button
+
+      var $videoSrc;
+      $('.video-btn').click(function () {
+        $videoSrc = $(this).data("src");
+      });
+      console.log($videoSrc);
+
+
+
+      // when the modal is opened autoplay it  
+      $('#myModal').on('shown.bs.modal', function (e) {
+
+        // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+        $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+      })
+
+
+
+      // stop playing the youtube video when I close the modal
+      $('#myModal').on('hide.bs.modal', function (e) {
+        // a poor man's stop video
+        $("#video").attr('src', $videoSrc);
+      })
+
+    });
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Bắc Ninh Travel</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item  active"><a href="index.html" class="nav-link">Trang chủ</a></li>
+          <li class="nav-item"><a href="tours.html" class="nav-link">Du lịch</a></li>
+          <li class="nav-item"><a href="hotels.html" class="nav-link">Khách sạn</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Dịch vụ</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+  <section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image: url('img/bg1.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row slider-text align-items-center">
+          <div class="col-md-7 col-sm-12 ftco-animate">
+            <h1 class="mb-3">Chào mừng bạn đến với thành phố Bắc Ninh</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-item" style="background-image: url('img/bg.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row slider-text align-items-center">
+          <div class="col-md-7 col-sm-12 ftco-animate">
+            <h1 class="mb-3">Du lịch Bắc Ninh về với miền quan họ</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-item" style="background-image: url('img/dendo.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row slider-text align-items-center">
+          <div class="col-md-7 col-sm-12 ftco-animate">
+            <h1 class="mb-3">Bắc Ninh là trung tâm xứ Kinh Bắc cổ xưa</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-item" style="background-image: url('img/phattich.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row slider-text align-items-center">
+          <div class="col-md-7 col-sm-12 ftco-animate">
+            <h1 class="mb-3">Với nhiều ngôi chùa cổ nổi tiếng</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+  <!-- END slider -->
+
+  <div class="ftco-section-search">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 tabulation-search">
+          <div class="element-animate">
+            <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link p-3 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                aria-controls="v-pills-home" aria-selected="true"><span>01</span> Khách sạn</a>
+              <a class="nav-link p-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                aria-controls="v-pills-profile" aria-selected="false"><span>02</span> Nhà hàng</a>
+              <a class="nav-link p-3" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                aria-controls="v-pills-messages" aria-selected="false"><span>03</span> Thuê xe</a>
+              <!-- <a class="nav-link p-3" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><span>04</span> Nhà hàng</a> -->
+            </div>
+          </div>
+
+          <div class="tab-content py-5" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              <div class="block-17">
+                <form action="" method="post" class="d-block d-lg-flex">
+                  <div class="fields d-block d-lg-flex">
+
+                    <div class="textfield-search one-third"><input type="text" class="form-control"
+                        placeholder="Tìm kiếm khách sạn"></div>
+
+                    <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control"
+                        placeholder="Ngày nhận"></div>
+
+                    <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control"
+                        placeholder="Ngày trả"></div>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                        <option value="">Số lượng</option>
+                        <option value="">1 người</option>
+                        <option value="">2 người</option>
+                        <option value="">3 người</option>
+                        <option value="">4 người</option>
+                        <option value="">Trên 4 người</option>
+                      </select>
+                    </div>
+                  </div>
+                  <input type="submit" class="search-submit btn btn-primary" value="Tìm kiếm">
+                </form>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+              <div class="block-17">
+                <form action="" method="post" class="d-block d-lg-flex">
+                  <div class="fields d-block d-lg-flex">
+                    <div class="textfield-search one-third"><input type="text" class="form-control"
+                        placeholder="Tìm kiếm nhà hàng"></div>
+
+                    <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control"
+                        placeholder="Thời gian"></div>
+
+                    <div class="check-out one-third"><input type="text" class="form-control" placeholder="Ghi chú">
+                    </div>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                        <option value="">Số lượng</option>
+                        <option value="">1 người</option>
+                        <option value="">2 người</option>
+                        <option value="">3 người</option>
+                        <option value="">4 người</option>
+                        <option value="">Trên 4 người</option>
+                      </select>
+                    </div>
+                  </div>
+                  <input type="submit" class="search-submit btn btn-primary" value="Tìm kiếm">
+                </form>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+              <div class="block-17">
+                <form action="" method="post" class="d-block d-lg-flex">
+                  <div class="fields d-block d-lg-flex">
+                    <div class="textfield-search one-third"><input type="text" class="form-control"
+                        placeholder="Tìm kiếm loại xe"></div>
+
+                    <div class="check-in one-third"><input type="text" id="start_date" class="form-control"
+                        placeholder="Ngày nhận xe"></div>
+
+                    <div class="check-out one-third"><input type="text" id="return_date" class="form-control"
+                        placeholder="Ngày trả xe"></div>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                        <option value="">Số lượng</option>
+                        <option value="">1 xe</option>
+                        <option value="">2 xe</option>
+                        <option value="">3 xe</option>
+                        <option value="">Trên 4 xe</option>
+                      </select>
+                    </div>
+                  </div>
+                  <input type="submit" class="search-submit btn btn-primary" value="Tìm kiếm">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="ftco-section-2">
+    <div class="container-fluid d-flex">
+      <div class="section-2-blocks-wrapper row no-gutters">
+        <div class="img col-sm-12 col-lg-6" style="background-image: url('img/bn1.jpg');">
+          <a href="" class="button video-btn " data-toggle="modal"
+            data-src="https://www.youtube.com/watch?v=UlUHN2mdsL4&t=1s" data-target="#myModal"><span
+              class="ion-ios-play video-btn"></span></a>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+
+              <div class="modal-body">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                    allow="autoplay"></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/UlUHN2mdsL4" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="text col-lg-6 ftco-animate">
+          <div class="text-inner align-self-start">
+
+            <h3>Chào mừng bạn đến với Bắc Ninh.</h3>
+            <p>Bắc Ninh vùng đất Kinh Bắc giàu truyền thống văn hóa. Nhắc đến Bắc Ninh là nhắc những làn điệu dân ca
+              quan họ ngọt ngào đã đi vào tiềm thức của người dân đất Việt bao đời nay.
+
+              Không chỉ thế, đây còn là vùng đất nổi tiếng với hội Lim, diễn ra vào tháng giêng âm lịch hàng năm. Đây là
+              lễ hội truyền thống lâu đời, thu hút đông đảo du khách thập phương đến tham gia. </p>
+
+            <p>Ngoài ra, Bắc Ninh còn có nhiều danh lam thắng cảnh và di tích lịch sử lâu đời cùng nhiều món ăn ngon,
+              độc đáo. Đây hứa hẹn là địa điểm du lịch hấp dẫn cho những ai muốn tìm hiểu cuộc sống và văn hóa truyền
+              thống của làng quê Bắc bộ xưa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 promo ftco-animate">
+          <a href="#" class="promo-img mb-4" style="background-image: url('img/thamQuanChua.jpg');"></a>
+          <div class="text text-center">
+            <h2>Tham quan chùa</h2>
+            <a href="#" class="read">Xem thêm</a>
+          </div>
+        </div>
+        <div class="col-lg-3 promo ftco-animate">
+          <a href="#" class="promo-img mb-4" style="background-image: url('img/dong-ho.jpg');"></a>
+          <div class="text text-center">
+            <h2>Tham quan làng nghề</h2>
+            <a href="#" class="read">Xem thêm</a>
+          </div>
+        </div>
+        <div class="col-lg-3 promo ftco-animate">
+          <a href="#" class="promo-img mb-4" style="background-image: url('img/quanho1.jpg');"></a>
+          <div class="text text-center">
+            <h2>Thưởng thức quan họ</h2>
+            <a href="#" class="read">Xem thêm</a>
+          </div>
+        </div>
+        <div class="col-lg-3 promo ftco-animate">
+          <a href="#" class="promo-img mb-4" style="background-image: url('img/banh.jpg');"></a>
+          <div class="text text-center">
+            <h2>Món ăn truyền thống</h2>
+            <a href="#" class="read">Xem thêm</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section bg-light">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-5">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+          <h2>Dịch vụ của chúng tôi</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+          <div class="media block-6 services d-block text-center">
+            <div class="d-flex justify-content-center">
+              <div class="icon d-flex justify-content-center mb-3"><span
+                  class="align-self-center flaticon-sailboat"></span></div>
+            </div>
+            <div class="media-body p-2">
+              <h3 class="heading">Du lịch tham quan</h3>
+              <p>Tham quan di tích lịch sử, thắng cảnh: Đây là hình thức du lịch truyền thống ở Việt Nam. Việt Nam có
+                được sự đa dạng và phong phú của yếu tố tự nhiên.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+          <div class="media block-6 services d-block text-center">
+            <div class="d-flex justify-content-center">
+              <div class="icon d-flex justify-content-center mb-3"><span
+                  class="align-self-center flaticon-around"></span></div>
+            </div>
+            <div class="media-body p-2">
+              <h3 class="heading">Sắp xếp di chuyển</h3>
+              <p>Chúng tôi sắp xếp dịch vụ đưa đón từ / ga xe buýt hoặc từ sân bay rất vui lòng cung cấp cho chúng tôi
+                xe buýt / tàu / số chuyến bay của bạn để có được sự phục vụ tốt nhất.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+          <div class="media block-6 services d-block text-center">
+            <div class="d-flex justify-content-center">
+              <div class="icon d-flex justify-content-center mb-3"><span
+                  class="align-self-center flaticon-compass"></span></div>
+            </div>
+            <div class="media-body p-2">
+              <h3 class="heading">Hướng dẫn viên</h3>
+              <p>Ngày nay khách du lịch đến với các điểm du lịch ngày càng nhiều. Nhằm tạo thuận lợi và tiết kiệm chi
+                phi cho việc đi chơi, thông tin các điêm đến, ăn chơi ,lịch sử văn hoá …nơi đến .</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+          <div class="media block-6 services d-block text-center">
+            <div class="d-flex justify-content-center">
+              <div class="icon d-flex justify-content-center mb-3"><span
+                  class="align-self-center flaticon-map-of-roads"></span></div>
+            </div>
+            <div class="media-body p-2">
+              <h3 class="heading">Quản lý vị trí</h3>
+              <p>Chúng tôi luôn theo dõi vị trí của khách hàng, để đảm bảo an toàn vị trí nhằm tạo sự an toàn cho chuyến
+                đi của các các bạn.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section">
+    <div class="container-fluid">
+      <div class="row no-gutters justify-content-center mb-5 pb-5 ftco-animate">
+        <div class="col-md-7 text-center heading-section">
+          <h2>Điểm đến phổ biến nhất</h2>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-md-6 col-lg-3 ftco-animate">
+          <a href="#" class="block-5" style="background-image: url('img/bg2.jpg');">
+            <div class="text">
+              <h3 class="heading">Tham quan chùa Phật tích</h3>
+              <div class="post-meta">
+                <span>Địa chỉ: thôn Phật Tích, Tiên Du, Bắc Ninh</span>
+              </div>
+              <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                  class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                <span>500 reviews</span>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3 ftco-animate">
+          <a href="#" class="block-5" style="background-image: url('img/chuadau.jpg');">
+            <div class="text">
+
+              <h3 class="heading">Tham quan chùa Dâu</h3>
+              <div class="post-meta">
+                <span>Địa chỉ: Thanh Khương, Thuận Thành, Bắc Ninh</span>
+              </div>
+              <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                  class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                <span>500 reviews</span>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3 ftco-animate">
+          <a href="#" class="block-5" style="background-image: url('img/chua-but-thap.jpg');">
+            <div class="text">
+
+              <h3 class="heading">Tham quan chùa Bút Tháp</h3>
+              <div class="post-meta">
+                <span>Địa chỉ: thôn Bút Tháp, Thuận Thành, Bắc Ninh</span>
+              </div>
+              <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                  class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                <span>500 reviews</span>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3 ftco-animate">
+          <a href="#" class="block-5" style="background-image: url('img/kinh-duong-vuong.jpg');">
+            <div class="text">
+
+              <h3 class="heading">Tham quan đền Kinh Dương Vương</h3>
+              <div class="post-meta">
+                <span>Địa chỉ: Á Lữ, Thuận Thành, Bắc Ninh</span>
+              </div>
+              <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                  class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                <span>500 reviews</span>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3 ftco-animate">
+          <a href="#" class="block-5" style="background-image: url('img/tranh-dong-horesize.jpg');">
+            <div class="text">
+
+              <h3 class="heading">Làng tranh Đông Hồ</h3>
+              <div class="post-meta">
+                <span>Địa chỉ: Song Hồ, Thuận Thành, Bắc Ninh</span>
+              </div>
+              <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                  class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                <span>500 reviews</span>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3 ftco-animate">
+          <a href="#" class="block-5" style="background-image: url('img/lang_gom_phu_lang_18-18_40_12_096.jpg');">
+            <div class="text">
+
+              <h3 class="heading">Làng gốm Phù Lãng</h3>
+              <div class="post-meta">
+                <span>Địa chỉ: Thôn Phấn Trung, Xã Phù Lãng, Huyện Quế Võ, Tỉnh Bắc Ninh</span>
+              </div>
+              <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                  class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                <span>500 reviews</span>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3 ftco-animate">
+          <a href="#" class="block-5"
+            style="background-image: url('img/tinh-hoa-lang-duc-dong-dai-bai-67-143816.jpg');">
+            <div class="text">
+
+              <h3 class="heading">Làng đúc đồng Đại Bái</h3>
+              <div class="post-meta">
+                <span>Địa chỉ: Đại Bái, Gia Bình, Bắc Ninh</span>
+              </div>
+              <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                  class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                <span>500 reviews</span>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3 ftco-animate">
+          <a href="#" class="block-5" style="background-image: url('img/det9B44448.jpg');">
+            <div class="text">
+
+              <h3 class="heading">Làng dệt Hồi Quan</h3>
+              <div class="post-meta">
+                <span>Địa chỉ: xã Tương Giang - thị xã Từ Sơn - tỉnh Bắc Ninh </span>
+              </div>
+              <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                  class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                <span>500 reviews</span>
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section testimony-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-5">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+          <h2>Mọi người nói gì về chúng tôi</h2>
+        </div>
+      </div>
+      <div class="row ftco-animate">
+        <div class="carousel owl-carousel ftco-owl">
+          <div class="item text-center">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url('img/ng2.webp')" style="border: 1px solid red;">
+              </div>
+              <div class="text">
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                    class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                </p>
+                <p class="mb-5">Tôi đã được đi một chuyến du lịch tuyệt vời nhất, đã biết thêm rất nhiều điều. Nếu được
+                  tôi cũng sẽ đi thêm vài chuyến nữa….</p>
+                <p class="name">Phản hồi</p>
+                <span class="position">Khách đến từ Hà Nội</span>
+              </div>
+            </div>
+          </div>
+          <div class="item text-center">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url('img/ng3.jpg')" style="border: 1px solid red;">
+              </div>
+              <div class="text">
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                    class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                </p>
+                <p class="mb-5">Tôi đã được đi một chuyến du lịch tuyệt vời nhất, đã biết thêm rất nhiều điều. Nếu được
+                  tôi cũng sẽ đi thêm vài chuyến nữa….</p>
+                <p class="name">Phản hồi</p>
+                <span class="position">Khách đến từ Hà Nội</span>
+              </div>
+            </div>
+          </div>
+          <div class="item text-center">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url('img/ng4.jpg')" style="border: 1px solid red;">
+              </div>
+              <div class="text">
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                    class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                </p>
+                <p class="mb-5">Tôi đã được đi một chuyến du lịch tuyệt vời nhất, đã biết thêm rất nhiều điều. Nếu được
+                  tôi cũng sẽ đi thêm vài chuyến nữa….</p>
+                <p class="name">Phản hồi</p>
+                <span class="position">Khách đến từ Hà Nội</span>
+              </div>
+            </div>
+          </div>
+          <div class="item text-center">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url('img/ng5.jpg')" style="border: 1px solid red;">
+              </div>
+              <div class="text">
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                    class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                </p>
+                <p class="mb-5">Tôi đã được đi một chuyến du lịch tuyệt vời nhất, đã biết thêm rất nhiều điều. Nếu được
+                  tôi cũng sẽ đi thêm vài chuyến nữa….</p>
+                <p class="name">Phản hồi</p>
+                <span class="position">Khách đến từ Hà Nội</span>
+              </div>
+            </div>
+          </div>
+          <div class="item text-center">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-4" style="background-image: url('img/ng1.jfif')" style="border: 1px solid red;">
+              </div>
+              <div class="text">
+                <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                    class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                </p>
+                <p class="mb-5">Tôi đã được đi một chuyến du lịch tuyệt vời nhất, đã biết thêm rất nhiều điều. Nếu được
+                  tôi cũng sẽ đi thêm vài chuyến nữa….</p>
+                <p class="name">Phản hồi</p>
+                <span class="position">Khách đến từ Hà Nội</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section">
+    <div class="container-fluid">
+      <div class="row mb-5 pb-5 no-gutters">
+        <div class="col-lg-4 bg-light p-3 p-md-5 d-flex align-items-center heading-section ftco-animate">
+          <div>
+            <h2 class="mb-5 pb-3">Bạn muốn nhận tư vấn từ chúng tôi? Đăng ký ngay bây giờ!</h2>
+            <form action="#" class="subscribe-form">
+              <div class="form-group">
+                <span class="icon icon-paper-plane"></span>
+                <input type="text" class="form-control" placeholder="Nhập email của bạn">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-8 p-2 pl-md-5 heading-section">
+          <h2 class="mb-5 p-2 pb-3 ftco-animate">Khách sạn được đề xuất nhiều nhất</h2>
+          <div class="row no-gutters d-flex">
+            <div class="col-md-4 ftco-animate">
+              <a href="#" class="block-5" style="background-image: url('img/ks1');">
+                <div class="text">
+                  <span class="price">811.440 VND/ĐÊM</span>
+                  <h3 class="heading">SOO Hotel Bac Ninh</h3>
+                  <div class="post-meta">
+                    <span>255A Nguyễn Gia Thiều, Phường Tiền An, Thành phố Bắc Ninh</span>
+                  </div>
+                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                      class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                    <span>500 reviews</span>
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+              <a href="#" class="block-5" style="background-image: url('img/ks2');">
+                <div class="text">
+                  <span class="price"> 900.000 VND/ĐÊM</span>
+                  <h3 class="heading">Muong Thanh Luxury</h3>
+                  <div class="post-meta">
+                    <span>395 Ngô Gia Tự, Phường Kinh Bắc, Thành phố Bắc Ninh</span>
+                  </div>
+                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                      class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                    <span>500 reviews</span>
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-4 ftco-animate">
+              <a href="#" class="block-5" style="background-image: url('img/ks3');">
+                <div class="text">
+                  <span class="price">1.617.695 VND/ĐÊM</span>
+                  <h3 class="heading">Le Indochina Hotel & Spa</h3>
+                  <div class="post-meta">
+                    <span>45 Nguyễn Đăng Đạo, Phường Suối Hoa, Thành phố Bắc Ninh</span>
+                  </div>
+                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span
+                      class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span>
+                    <span>500 reviews</span>
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Blog của chúng tôi-->
+  <section class="ftco-section bg-light">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-5">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+          <h2>Blog của chúng tôi</h2>
+        </div>
+      </div>
+      <div class="row ftco-animate">
+        <div class="carousel1 owl-carousel ftco-owl">
+          <div class="item">
+            <div class="blog-entry">
+              <a href="blog-single.html" class="block-20" style="background-image: url('img/dendo.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">7/12/2019</a></div>
+
+                </div>
+                <h3 class="heading"><a href="#">Top các Ngôi Chùa Nổi Tiếng Ở Bắc Ninh – Miền Du Lịch Tâm Linh, Tín
+                    Ngưỡng Phật Giáo</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Xem thêm</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="blog-entry" data-aos-delay="100">
+              <a href="blog-single.html" class="block-20" style="background-image: url('img/phoDiBo.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">15/01/2020</a></div>
+
+                </div>
+                <h3 class="heading"><a href="#">Phố đi bộ Bắc Ninh thường xuyên tổ chức những hoạt động vui chơi, sự
+                    kiện hấp dẫn...</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Xem thêm</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_7.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">8/6/2019</a></div>
+
+                </div>
+                <h3 class="heading"><a href="#">Đi khắp bốn phương trời, ai không mang trong lòng những kí ức đẹp về một
+                    cây đa, bến nước, con đò…</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Xem thêm</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_8.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">15/9/2019</a></div>
+
+                </div>
+                <h3 class="heading"><a href="#">Đi khắp bốn phương trời, ai không mang trong lòng những kí ức đẹp về một
+                    cây đa, bến nước, con đò…</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Xem thêm</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="blog-entry" data-aos-delay="200">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_8.jpg');">
+              </a>
+              <div class="text p-4">
+                <div class="meta">
+                  <div><a href="#">22/4/2018</a></div>
+
+                </div>
+                <h3 class="heading"><a href="#">Đi khắp bốn phương trời, ai không mang trong lòng những kí ức đẹp về một
+                    cây đa, bến nước, con đò…</a></h3>
+                <p class="clearfix">
+                  <a href="#" class="float-left">Xem thêm</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--H E A D ING -->
+  <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Loại hình du lịch</h2>
+            <p>Tham quan chùa</p>
+            <p>Tham quan làng nghề</p>
+            <p>Quan họ</p>
+            <p>Ẩm thực</p>
+            <p>Nghỉ dưỡng</p>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Đặt bây giờ</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-2 d-block">Khách sạn</a></li>
+              <li><a href="#" class="py-2 d-block">Nhà hàng</a></li>
+              <li><a href="#" class="py-2 d-block">Thuê xe</a></li>
+              <li><a href="#" class="py-2 d-block">Thuê hướng dẫn viên</a></li>
+              <li><a href="#" class="py-2 d-block">Đặt vé &amp; máy bay</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Giao dịch hàng đầu</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-2 d-block"></a></li>
+              <li><a href="#" class="py-2 d-block">Muong Thanh Luxury</a></li>
+              <li><a href="#" class="py-2 d-block">Deluxe Hotels</a></li>
+              <li><a href="#" class="py-2 d-block">Đặt vé &amp; máy bay</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2">Thông tin liên hệ</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-2 d-block"></a>255A Nguyễn Gia Thiều, Phường Tiền An, Thành phố Bắc Ninh</li>
+              <li><a href="#" class="py-2 d-block">+84329644477</a></li>
+              <li><a href="#" class="py-2 d-block">dangdai.ptit@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+            <ul class="ftco-footer-social list-unstyled float-md-right float-lft">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="https://www.facebook.com/dai.vudangdai"><span
+                    class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+
+          <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Bản quyền &copy;
+            <script>document.write(new Date().getFullYear());</script> | Tất cả bản quyền | Vũ Đăng Đại</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--onTop-->
+  <div id="toTop">
+    <img class="onTop" src="img/up.png">
+  </div>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+    </svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>

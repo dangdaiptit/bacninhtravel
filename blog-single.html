@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BacNinh Travel</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="logo/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="logo/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="logo/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="logo/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="logo/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="logo/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="logo/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="logo/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="logo/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="logo/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo/favicon-16x16.png">
+    <link rel="manifest" href="logo/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+      .modal-dialog {
+      max-width: 800px;
+      margin: 30px auto;
+      }
+      /*ẩn thanh cuộn*/
+      body {
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+      }
+
+
+    .modal-body {
+      position:relative;
+      padding:0px;
+    }
+    .close {
+      position:absolute;
+      right:-30px;
+      top:0;
+      z-index:999;
+      font-size:2rem;
+      font-weight: normal;
+      color:#fff;
+      opacity:1;
+
+      
+    }
+      #toTop{
+				position: fixed;
+				bottom: 20px;
+				right: 30px;
+				cursor: pointer;
+			}
+
+			.onTop{
+				width: 50px;
+			}
+      /*khắc phục sự cố chạm slide không vuốt xuống được trên trình mobile*/
+      .owl-carousel .owl-stage, .owl-carousel.owl-drag .owl-item{
+    -ms-touch-action: auto;
+        touch-action: auto;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {//khi code nên để trong hàm này để không bị lỗi
+          
+			//viết jQuery cho toTop
+			$('#wrapper').append('<div id="toTop"> <img class="onTop"  src="img/up.png"></div>');
+			$(window).scroll(function() { 
+          		if($(window).scrollTop() != 0) { 
+            		$('#toTop').fadeIn();
+          		} else {
+           			 $('#toTop').fadeOut();
+          		}
+       		});
+     		$('#toTop').click(function() {
+       			$('html, body').animate({scrollTop:0},500);
+         });
+         
+         // Gets the video src from the data-src on each button
+
+      var $videoSrc;  
+      $('.video-btn').click(function() {
+          $videoSrc = $(this).data( "src" );
+      });
+      console.log($videoSrc);
+
+        
+        
+      // when the modal is opened autoplay it  
+      $('#myModal').on('shown.bs.modal', function (e) {
+          
+      // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+      $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+      })
+        
+
+
+      // stop playing the youtube video when I close the modal
+      $('#myModal').on('hide.bs.modal', function (e) {
+          // a poor man's stop video
+          $("#video").attr('src',$videoSrc); 
+      }) 
+
+			});
+    </script>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Bắc Ninh Travel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="index.html" class="nav-link">Trang chủ</a></li>
+            <li class="nav-item"><a href="tours.html" class="nav-link">Du lịch</a></li>
+            <li class="nav-item "><a href="hotels.html" class="nav-link">Khách sạn</a></li>
+            <li class="nav-item"><a href="services.html" class="nav-link">Dịch vụ</a></li>
+            <li class="nav-item active"><a href="blog.html" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END nav -->
+    
+    <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center">
+            <div class="col-md-7 col-sm-12 ftco-animate">
+              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> <span><a href="blog.html">Blog</a></span> <span>chi tiết</span></p>
+              <h1 class="mb-3">Chi tiết</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END slider -->
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ftco-animate">
+            <h2 class="mb-3">#1. Chùa Dâu</h2>
+            <p>Ngôi chùa đầu tiên mà chúng tôi muốn giới thiệu đến các bạn đó chính là chùa Dâu. Ngoài ra, chùa còn được biết đến với tên gọi là chùa Pháp Vân, chùa Diên Ứng, chùa Cả, Cổ Châu Tự, Duyên Ứng tự hay chùa Cổ Châu. Đây là một trong số các chùa đẹp ở Bắc Ninh nằm tại xã Thanh Khương, huyện Thuận Thành. Chùa cách thành phố Hà Nội khoảng 30km. Đây cũng là ngôi chùa được liệt vào danh sách những ngôi chùa cổ xưa nhất tại Việt Nam</p>
+            <p>
+              <img src="img/dau.jpg" alt="" class="img-fluid">
+            </p>
+            <p>Theo sử sách ghi lại thì chùa Dâu được xây dựng vào buổi đầu Công Nguyên. Vào năm 187 chùa được khởi công xây dựng, cho tới năm 226 thì hoàn thành. Tới năm 1313 chùa được xây dựng lại. Từ đó tới nay, chùa Dâu cũng đã trải qua nhiều lần trùng tu. Vào cuối thế kỷ thứ 6, một nhà sư từ Trung Quốc đã ghé qua chùa và lập nên một phái Thiền tại Việt Nam. Và ngày 28/04/1962, chùa Dâu được Nhà xếp vào hạng di tích lịch sử.</p>
+            <p>Về kế trúc, ngôi chùa Bắc Ninh này cũng giống như nhiều ngôi chùa khác tại Việt Nam được xây dựng theo kiểu “nội công ngoại quốc”. Chùa gồm có bốn dãy nhà liên thông thành hình chữ nhật, bao quanh ba ngôi nhà chính là tiền đường, thiên hương và thượng điện. Mặc dù hiện nay tại chùa không còn hậu đường nữa nhưng du khách khi ghé thăm chùa vẫn có thể chiêm ngưỡng được bốn mươi gian nhà oản nằm tại hai bên tả hữu chùa.</p>
+            <p><img src="img/13033731173_b1a5bf3ea6_o.jpg" alt="" class="img-fluid"></p>
+            <p>
+              Điểm gây ấn tượng nhất của ngôi chùa nổi tiếng ở Bắc Ninh này đó chính là những pho tượng thờ. Tại gian giữa của chùa là một bức tượng Bà Dâu hay còn gọi là nữ thần Pháp Vân màu đồng hun có chiều cao 2m. Tượng có dáng vẻ uy nghi, trầm mặt, giữa trán tượng Phật là một nốt ruồi đậm. Hai bên bức tượng là tượng Kim Đồng và Ngọc Nữ. Ngoài ra, tại chìa còn có cả tượng Bà Đậu do trước đây tượng đặt tại chùa Đậu (Bắc Ninh) nhưng chùa bị Pháp phá hủy nên bức tượng được chuyển về chùa Dâu để thờ phụng. Những bức tượng này đều có niên đại từ thế kỷ 18. Bên trái thượng điện là pho tượng của Mạc Đĩnh Chi. Bức tượng này có niên đại lâu hơn cả, đã có từ thế kỷ 14.
+              
+            </p>
+            <p>Ở giữa sân chùa ở Bắc Ninh là một cây tháp Hòa Phong được xây từ gạch cỡ lớn ngày xưa. Qua thời gian, tòa tháp đã mất đi 6 tầng phía trên, giờ chỉ còn 3 tầng phía dưới, cao khoảng 17m. Tại mặt trước của tầng 2 có mặt bảng hiệu bằng đá được khắc chữ “Hòa Phong Tháp”. Trong tháp có đặt một quả chuông bằng đồng được đúc từ năm 1793 cùng một chiếc khánh đồng đúc năm 1817. Tại 4 góc tháp là 4 bức tượng Thiên Vương, mỗi bức cao 1,6m. Trước tháp, phía bên phải có một tấm bia đá vuông được dựng vào năm 1738, bên trái là tượng cừu đá cao 0,8m và dài 1,33m.</p>
+            
+            <h2 class="mb-3 mt-5">#2. Chùa Bút Tháp</h2>
+            <p>Một trong số các chùa nổi tiếng ở Bắc Ninh chính là chùa Bút Tháp hay còn được gọi là Ninh Phúc tự hoặc chùa Nhạn Tháp. Chùa nằm tại thôn Bút Tháp, xã Đình Tổ, huyện Thuận Thành. Chùa nổi tiếng với bức tượng Phật Bồ Tát Quán Thế Âm thiên thủ thiên nhãn được làm bằng gỗ. Đây cũng là bức tượng Phật bằng gỗ lớn nhất Việt Nam tính tới thời điểm hiện tại.</p>
+            <p>
+              <img src="img/36729380836_bd8743e9cb_o.jpg" alt="" class="img-fluid">
+            </p>
+            <p>Theo sử sách ghi lại thì ngôi chùa đẹp ở Bắc Ninh đã có từ thời vua Trần Thánh Tông, khi ấy trụ trì chùa chính là thiền sư Huyền Quang. Vị trụ trì đã cho xây dựng ngọn tháp đa cao 9 tầng được trang trí bằng hình hoa sen. Tuy nhiên, đến nay thì ngọn tháp này không còn nữa.</p>
+            <p>Vào năm 1633, Hòa thượng Chuyết Chuyết (1590 – 1644) quê tỉnh Phúc Kiến, Trung Hoa sang Việt Nam làm trụ trì. Đây cũng là thời kỳ mà chùa Bút Tháp đã trở nên rất nổi tiếng. Sau khi Hòa thượng Chuyết Chuyết viên tịch thì Thiền sư Minh Hạnh là học trò của ông lại tiếp tục thay ông nắm giữ vai trò là người trụ trì. Cũng vào thời gian này, Hoàng Thái hậu Trịnh Thị Ngọc Trúc, hiệu Diên Viên về đây tu hành, thấy chùa quá hư nát nên đã xin Chúa Trịnh Tráng cho tu sửa lại. Đến năm 1647 mới hoàn thành. Về cơ bản thì quy mô của chùa hiện tại cũng được xây dựng từ khi đó.</p>
+            <p>Vào năm 1876, vua Tự Đức thấy nơi đây có một tòa  tháp khổng lồ nên đặt tên là Bút Tháp mặc dù trên đỉnh vẫn để là tháp Bảo Nghiêm. Sau này chùa còn được trải qua nhiều lần trùng tu vào các năm 1739, 1903, 1915, 1921, 1992 đến 1996.</p>
+            <p>
+              <img src="img/36776629535_fbd0b52374_o.jpg" alt="" class="img-fluid">
+            </p>
+            <p>Xét về kiến trúc thì ngôi chùa này vẫn lưu giữ được cơ bản các di tích của thế kỷ XVII. Phật điện gồm có 10 nếp nhà nằm trên một trục dài 100m. Đi qua cửa tam quan là đến gác chuông hai tầng, tám mái.</p>
+            <p>Chùa cũng giống chùa Dâu, ngôi chùa Bắc Ninh có 3 dãy nhà là tiền đường, thiên hương và thượng điện tạo thành chữ “Công”. Bên trong chùa có đặt khá nhiều pho tượng, nổi bật nhất là tượng Quan Âm nghìn mắt nghìn tay. Bức tượng này được điêu khắc bởi điêu khắc gia họ Trương vào năm 1656. Bức tượng cao tới 3,7m, chiều ngang 2,1m và dày 1,15m. Tượng có tổng cộng 11 đầu, 831 tay với 42 tay lớn, 789 tay dài ngắn khác nhau.</p>
+            <p>Ngoài ra tại chùa còn có 2 tác phẩm điêu khắc khác vô cùng nổi tiếng là tượng Tây Thiên Đông Độ Việt Nam lịch đại Tổ sư cùng tượng Thị Kính. Pho tượng Tuyết Sơn cũng là một trong các kiệt tác và có giá trị lịch. Bên cạnh đó, tại chùa còn có trên 70 pho tượng gỗ khác được tạc với nhiều tư thế hình dạng khác nhau.</p>
+            <p>Về cơ bản chùa vẫn sử dụng kiến trúc khung gỗ chịu lực, nền được làm bằng đá nên khá chắc chắn. Đây không chỉ là một nơi thờ cúng tâm linh mà còn mang giá trị văn hóa và lịch sử ý nghĩa.</p>
+            <div class="tag-widget post-tag-container mb-5 mt-5">
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">chua</a>
+                <a href="#" class="tag-cloud-link">di tich</a>
+                <a href="#" class="tag-cloud-link">du lich</a>
+                <a href="#" class="tag-cloud-link">thue xe</a>
+              </div>
+            </div>
+            
+            <div class="about-author d-flex pt-5">
+              <div class="bio align-self-md-center mr-4">
+                <img src="img/ng3.jpg" alt="Image placeholder" class="img-fluid mb-4 w-70">
+              </div>
+              <div class="desc align-self-md-center">
+                <h3>Thông tin về tác giả</h3>
+                <p>Nguyễn Thanh Tùng hay được biết đến với nghệ danh Sơn Tùng M-TP (sinh ngày 5 tháng 7 năm 1994) là một nam ca sĩ, nhạc sĩ và diễn viên người Việt Nam. Được mệnh danh là "Hoàng tử V-pop", Sơn Tùng M-TP đã nhận được nhiều giải thưởng bao gồm 1 giải thưởng Âm nhạc Cống hiến, 1 giải Âm nhạc châu Âu của MTV, 1 giải Mnet Asian Music Awards, 7 giải Làn Sóng Xanh và được đưa vào danh sách 30 Under 30 của tạp chí Forbes Vietnam.</p>
+              </div>
+            </div>
+
+
+            <div class="pt-5 mt-5">
+              <h3 class="mb-5">6 Bình luận</h3>
+              <ul class="comment-list">
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Tony Phạm</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Trả lời</a></p>
+                  </div>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Tony Phạm</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Trả lời</a></p>
+                  </div>
+
+                  <ul class="children">
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="images/person_1.jpg" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>Tony Phạm</h3>
+                        <div class="meta">June 27, 2018 at 2:21pm</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#" class="reply">Trả lời</a></p>
+                      </div>
+
+
+                      <ul class="children">
+                        <li class="comment">
+                          <div class="vcard bio">
+                            <img src="images/person_1.jpg" alt="Image placeholder">
+                          </div>
+                          <div class="comment-body">
+                            <h3>Tony Phạm</h3>
+                            <div class="meta">June 27, 2018 at 2:21pm</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                            <p><a href="#" class="reply">Trả lời</a></p>
+                          </div>
+
+                            <ul class="children">
+                              <li class="comment">
+                                <div class="vcard bio">
+                                  <img src="images/person_1.jpg" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                  <h3>Tony Phạm</h3>
+                                  <div class="meta">June 27, 2018 at 2:21pm</div>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                  <p><a href="#" class="reply">Trả lời</a></p>
+                                </div>
+                              </li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="images/person_1.jpg" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>Tony Phạm</h3>
+                    <div class="meta">June 27, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Trả lời</a></p>
+                  </div>
+                </li>
+              </ul>
+              <!-- END comment-list -->
+              
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Để lại một bình luận</h3>
+                <form action="#" class="p-5 bg-light">
+                  <div class="form-group">
+                    <label for="name">Tên *</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Lời nhắn</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Đăng bình luận" class="btn py-3 px-4 btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+          </div> <!-- .col-md-8 -->
+          <div class="col-md-4 sidebar">
+            <div class="sidebar-box">
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <span class="icon fa fa-search"></span>
+                  <input type="text" class="form-control" placeholder="Nhập từ khóa → Enter">
+                </div>
+              </form>
+            </div>
+            <div class="sidebar-box ftco-animate">
+              <div class="categories">
+                <h3>Thể loại</h3>
+                <li><a href="#">Du lịch <span>(12)</span></a></li>
+                <li><a href="#">Khách sạn <span>(22)</span></a></li>
+                <li><a href="#">Ẩm thực <span>(37)</span></a></li>
+                <li><a href="#">Nhà hàng <span>(42)</span></a></li>
+                <li><a href="#">Thuê xe <span>(14)</span></a></li>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Tag liên quan</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">chùa</a>
+                <a href="#" class="tag-cloud-link">nem</a>
+                <a href="#" class="tag-cloud-link">nhà hàng</a>
+                <a href="#" class="tag-cloud-link">xe</a>
+                <a href="#" class="tag-cloud-link">núi</a>
+                <a href="#" class="tag-cloud-link">phật</a>
+                <a href="#" class="tag-cloud-link">khu vui chơi</a>
+                <a href="#" class="tag-cloud-link">sông</a>
+              </div>
+            </div>
+
+            <div class="sidebar-box ftco-animate">
+              <h3>Thông tin</h3>
+              <p>Festival ‘Về miền Quan họ 2019’ diễn ra từ ngày 13- 28/2 (tức ngày 9 tháng giêng đến hết ngày 24 tháng giêng năm Kỷ Hợi) tại TP. Bắc Ninh.</p>
+              <p>Festival “Về miền Quan họ 2019” được tổ chức vào dịp kỷ niệm 10 năm Dân ca Quan họ Bắc Ninh được UNESCO công nhận là Di sản văn hóa phi vật thể đại diện của nhân loại.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Loại hình du lịch</h2>
+              <p>Tham quan chùa</p>
+              <p>Tham quan làng nghề</p>
+              <p>Quan họ</p>
+              <p>Ẩm thực</p>
+              <p>Nghỉ dưỡng</p>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Đặt bây giờ</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Khách sạn</a></li>
+                <li><a href="#" class="py-2 d-block">Nhà hàng</a></li>
+                <li><a href="#" class="py-2 d-block">Thuê xe</a></li>
+                <li><a href="#" class="py-2 d-block">Thuê hướng dẫn viên</a></li>
+                <li><a href="#" class="py-2 d-block">Đặt vé &amp; máy bay</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Giao dịch hàng đầu</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block">Muong Thanh Luxury</a></li>
+                <li><a href="#" class="py-2 d-block">Deluxe Hotels</a></li>
+                <li><a href="#" class="py-2 d-block">Đặt vé &amp; máy bay</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Thông tin liên hệ</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block"></a>255A Nguyễn Gia Thiều, Phường Tiền An, Thành phố Bắc Ninh</li>
+                <li><a href="#" class="py-2 d-block">+84329644477</a></li>
+                <li><a href="#" class="py-2 d-block">dangdai.ptit@gmail.com</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <ul class="ftco-footer-social list-unstyled float-md-right float-lft">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Bản quyền &copy;<script>document.write(new Date().getFullYear());</script> | Tất cả bản quyền | Vũ Đăng Đại</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+<!--onTop-->
+        <div id="toTop">
+          <img class="onTop"  src="img/up.png">
+        </div>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
